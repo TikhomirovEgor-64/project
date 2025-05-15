@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <br><h1>Изменение профиля</h1><br><hr>
+  {{ form.hidden_tag() }}
+  <form action="" method="post" enctype="multipart/form-data">
+    <p>{{ form.name.label }}
+    {{ form.name(class="form-control", value=current_user.name) }}
+    {% for error in form.name.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.surname1.label }}
+    {{ form.surname1(class="form-control", value=current_user.surname1) }}
+    {% for error in form.surname1.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.surname2.label }}
+    {{ form.surname2(class="form-control", value=current_user.surname2) }}
+    {% for error in form.surname2.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.photo.label }}
+    {{ form.photo(class="form-control") }}
+    {% for error in form.photo.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.date_of_birth.label }}
+    {{ form.date_of_birth(class="form-control") }}
+    {% for error in form.date_of_birth.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.info_about.label }}
+    {{ form.info_about(class="form-control", value=current_user.info_about) }}
+    {% for error in form.info_about.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ error }}
+    </div>
+    {% endfor %}<hr></p>
+    <p>{{ form.submit2(type="submit", class="btn btn-success") }}</p>
+    {{ message }}
+  </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br><h1>Запросы</h1>
+    <nav class="navbar navbar-light bg-success">
+        <a class="navbar-brand" href="/send_req">Отправить</a>
+        <a class="navbar-brand" href="/sent_req">Отправленые</a>
+        <a class="navbar-brand" href="/get_req">Входящие</a>
+    </nav>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      {% block request %}{% endblock %}
+    </main>
+{% endblock %}

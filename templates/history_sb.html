@@ -1,0 +1,29 @@
+{% extends "history.html" %}
+
+{% block history %}
+  <br><h3>{{title2}}</h3><br>
+  {% if res %}
+  <table class="my_table">
+    <tr class="my_row">
+      <td width="300px" bgcolor="#dddddd">Изображение</td>
+      <td width="300px" bgcolor="#dddddd">Описание</td>
+      {% if correct %}
+      <td width="150px" bgcolor="#dddddd">Редактировать</td>
+      <td width="150px" bgcolor="#dddddd">Удалить</td>
+      {% endif %}
+    </tr>
+    {% for i in res %}
+    <tr class="my_row">
+      <td bgcolor="#dddddd"><img width="300px"src="{{ url_for('static', filename=i[0]) }}"></td>
+      <td bgcolor="#dddddd"><label>{{i[1]}}</label></td>
+      {% if correct %}
+      <td bgcolor="#dddddd"><a class="navbar-brand" href="/correction_history/{{i[2]}}">Редактировать</a></td>
+      <td bgcolor="#dddddd"><a class="navbar-brand" href="/delete_history/{{i[2]}}">Удалить</a></td>
+      {% endif %}
+    </tr>
+    {% endfor%}
+  </table>
+  {% else %}
+  <h4>У {{text}} нет опубликованных историй</h4>
+  {% endif %}
+{% endblock %}

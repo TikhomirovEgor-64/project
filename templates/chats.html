@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br><h1>Чаты</h1><hr>
+    {% if res %}
+    {% for val in res %}
+      <img height="75px" src="{{url_for('static', filename=val[1])}}" alt="здесь должна была быть картинка, но не нашлась">
+      <a class="navbar-brand" style="text-indent: 25px;" width="100px" height="100px" href="/chat/{{current_user.id}}/{{val[0]}}">{{val[2]}}</a><hr>
+    {% endfor %}
+    {% else %}
+    <h3>Нет никого в списке ваших чатов</h3>
+    {% endif %}
+{% endblock %}

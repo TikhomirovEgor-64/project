@@ -1,0 +1,19 @@
+{% extends "request.html" %}
+
+{% block request %}
+  <br><h3>Отправленные предложения на добавление в друзья</h3><br>
+  {% if res %}
+  <table class="my_table">
+    <tr class="my_row">
+      <td width="300px" bgcolor="#dddddd">ФИО</td>
+    </tr>
+    {% for val in res %}
+    <tr class="my_row">
+      <td><a class="navbar-brand" width="300px" href="/profile/{{val[0]}}">{{val[1]}}</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <br><h4>Нет отправленных запросов на добавление в друзья</h4>
+  {% endif %}
+{% endblock %}

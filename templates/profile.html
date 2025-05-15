@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <br><h1>{{title2}}</h1><br><hr>
+  {{ form.hidden_tag() }}
+  <form action="" method="post">
+    <p>
+        <img height="150px" src="{{ url_for('static', filename=photo) }}" align='right'<br>
+        <p>{{ form.name.label }}
+        {{ info_user.name }}<hr></p>
+        <p>{{ form.surname1.label }}
+        {{ info_user.surname1 }}<hr></p>
+        <p>{{ form.surname2.label }}
+        {{ info_user.surname2 }}<hr></p>
+        <p>{{ form.date_of_birth.label }}
+        {{ info_user.date_of_birth }}<hr></p>
+        <p>{{ form.info_about.label }}
+        {{ info_user.info_about }}<hr></p>
+        {% block profile %}{% endblock %}
+    </p>
+  </form>
+{% endblock %}

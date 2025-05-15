@@ -1,0 +1,12 @@
+{% extends "history.html" %}
+
+{% block history %}
+  <br><h3>Истории ваших друзей</h3><br>
+  {% if friends %}
+  {% for val in friends %}
+  <a class="navbar-brand" href="/history_sb/{{val[1]}}">{{val[0]}}</a>
+  {% endfor %}
+  {% else %}
+  <h4>Ни у кого из ваших друзей нет опубликованных историй</h4>
+  {% endif %}
+{% endblock %}

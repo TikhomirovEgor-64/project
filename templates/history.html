@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br><h1>Истории</h1>
+    <nav class="navbar navbar-light bg-success">
+        <a class="navbar-brand" href="/add_history">Добавить историю</a>
+        <a class="navbar-brand" href="/my_history">Мои истории</a>
+        <a class="navbar-brand" href="/friend_history">Истории друзей</a>
+    </nav>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+      {% block history %}{% endblock %}
+    </main>
+{% endblock %}

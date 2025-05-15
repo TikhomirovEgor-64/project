@@ -1,0 +1,34 @@
+{% extends "request.html" %}
+
+{% block request %}
+  <br><h3>Отправить предложение на добавление в друзья</h3><br>
+  {{ form.hidden_tag() }}
+  <form action="" method="post">
+    <p>
+        {{ form.search.label() }}
+        {{ form.search(class="form-control", placeholder="Поиск", size=80, style="border: 1px solid green;") }}<br>
+        {% for error in form.search.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+  </form>
+  {% if res %}
+  <table class="my_table">
+    <tr class="my_row">
+      <td width="300px" bgcolor="#dddddd">ФИО</td>
+      <td width="150px" bgcolor="#dddddd">Отправить</td>
+    </tr>
+    {% for val in res %}
+    <tr class="my_row">
+      <td><a class="navbar-brand" width="300px" href="/profile/{{val[0]}}">{{val[1]}}</a></td>
+      <td><a class="navbar-brand" width="150px" href="/send_req/{{val[0]}}">Отправить</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <br><h4>Нет пользователей по данному запросу</h4>
+  {% endif %}
+{% endblock %}

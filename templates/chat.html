@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <br><h1>{{'Чат c ' + info_user[1]}}</h1><hr>
+      <img height="75px" src="{{url_for('static', filename=info_user[0])}}" alt="здесь должна была быть картинка, но не нашлась">
+      <a class="navbar-brand" style="text-indent: 25px;" width="100px" height="100px" href="/profile/{{info_user[2]}}">{{info_user[1]}}</a><hr>
+      <div style="background-color: #ffdb8b; width: 600px;">
+      {% for val in res %}
+      {% if val[1] == 1 %}
+      <div style="text-align:right; margin-right:10px;">
+      <label style="background-color: #90ee90; max-width: 450px; overflow-wrap: break-word; text-align:left; padding-left: 3px; padding-right: 3px;">{{val[0]}}</label><br>
+      </div>
+      {% elif val[1] == 2 %}
+      <div style="text-align:left; margin-left:10px;">
+      <label style="background-color: #edff21; max-width: 450px; overflow-wrap: break-word; text-align:left; padding-left: 3px; padding-right: 3px;">{{val[0]}}</label><br>
+      </div>
+      {% endif %}
+      {% endfor %}
+      </div><br>
+      <form action="" method="post">
+      {{ form.text(placeholder="Написать сообщение", size=50, style="border: 1px solid green;", value="") }}
+      {{ form.submit() }}
+      </form>
+{% endblock %}
